@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
-console.log("=".repeat(60));
-console.log(process.env.NODE_ENV);
-console.log("=".repeat(60));
-
 const keys = require(__dirname + '/config/keys');
 
 require(__dirname + '/models/user');
