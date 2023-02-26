@@ -1,5 +1,13 @@
+console.log("=".repeat(60));
+console.log(process.env.NODE_ENV);
+console.log("=".repeat(60));
+
+// keys.js - figure out what set of credentials to return
 if (process.env.NODE_ENV === 'production') {
-    module.exports = require("./prod");
+    console.log("Exporting PROD keys");
+    module.exports = require('./prod');
 } else {
-    module.exports = require("./dev");
+    console.log("Exporting DEV keys");
+    module.exports = require('./dev');
 }
+  
