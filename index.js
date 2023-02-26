@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const keys = require('./config/keys');
+const keys = require(__dirname + '/config/keys');
 
-require('./models/user');
-require('./services/passport');
+require(__dirname + '/models/user');
+require(__dirname + '/services/passport');
 
 mongoose.connect(keys.mongoURI);
 
