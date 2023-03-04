@@ -10,16 +10,21 @@
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client \""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "concurrently": "^7.6.0",
     "cookie-session": "^2.0.0",
     "express": "^4.18.2",
     "mongoose": "^6.9.0",
     "nodemon": "^2.0.20",
     "passport": "^0.5.3",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "stripe": "^11.13.0"
   }
 }
