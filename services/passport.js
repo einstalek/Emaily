@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const { use } = require('passport');
 const User = mongoose.model('users');
 
-passport.serializeUser((user, done) => {
+passport.serializeUser( async (user, done) => {
   done(null, user.id);
 });
 
@@ -29,7 +29,9 @@ passport.use(new GoogleStrategy({
     if (existingUser) {
       done(null, existingUser);
     } else {
-      const user = await User({googleID: profile.id}).save();
-      done(null, user.save());
+      const user = await User({googleID: profile.id, 
+        fullName: profile.displayName, 
+        photoURL: profile.photos[0].value}).save();
+      done(null, user);
     }
   }));
